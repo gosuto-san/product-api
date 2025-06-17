@@ -8,7 +8,7 @@ import com.nezumi.produitservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/produits")
+@RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
 public class ProductController {
 
@@ -23,5 +23,21 @@ public class ProductController {
   public List<Product> getAllProduct(){
     return productService.getAllProduct();
   }
+
+  @GetMapping("{id}")
+  public @ResponseBody Product getProduct(@PathVariable Long id){
+    return productService.getProduct(id);
+  }
+
+  @PutMapping("{id}")
+  public @ResponseBody Product updateProduct(@PathVariable Long id, @RequestBody Product product){
+    return productService.updateProduct(id, product);
+  }
+
+  @DeleteMapping("{id}")
+  public String deleteProduct(@PathVariable Long id) {
+    return productService.deleteProduct(id);
+  }
+
 }
 
