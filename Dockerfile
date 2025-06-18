@@ -1,6 +1,6 @@
 FROM eclipse-temurin:21-jdk-alpine
 
-LABEL authors="andreas"
+LABEL authors="gosuto-san"
 
 WORKDIR /app
 
